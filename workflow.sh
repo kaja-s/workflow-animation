@@ -13,8 +13,8 @@ BG_YELLOW_DIM='\033[48;2;179;204;88m'       # Dim Yellow for flicker
 BG_GREY='\033[48;2;189;189;189m'     # Grey
 # Status labels
 LABEL_COMPLETED="${BG_GREEN}${BLACK} ✓ completed ${RESET}"
-LABEL_PROCESSING_1="${BG_YELLOW_BRIGHT}${BLACK} ◉ processing ${RESET}"
-LABEL_PROCESSING_2="${BG_YELLOW_DIM}${BLACK} ◉ processing ${RESET}"
+LABEL_PROCESSING_1="${BG_YELLOW_BRIGHT}${BLACK} ~ processing ${RESET}"
+LABEL_PROCESSING_2="${BG_YELLOW_DIM}${BLACK} ^ processing ${RESET}"
 LABEL_PENDING="${BG_GREY}${BLACK} ○ pending ${RESET}"
 show_state() {
     clear
