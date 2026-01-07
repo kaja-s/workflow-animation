@@ -36,7 +36,15 @@ show_state_flicker() {
 }
 echo "Press Ctrl+C to stop the animation..."
 sleep 2
-
+FUNCTIONALITIES=(
+    "Generate cryptographically secure random salt for Argon2id KDF"
+    "Implement get_default_params function for Argon2id parameters"
+    "Implement core Argon2id key derivation function"
+    "Implement get_key function with Master Password input"
+    "Implement security validation and integration tests"
+)
+FILES=("salt_generator.py" "default_params.py" "argon2id_kdf.py" "get_key.py" "security_tests.py")
+FOLDERS=("crypto/salt" "crypto/params" "crypto/kdf" "crypto/keys" "tests/security")
 while true; do
     # Render initialization - processing
     show_state_flicker "────────────────────────────────────────────────────────────
@@ -49,55 +57,54 @@ ${LABEL_PROCESSING_2}   Render initialization
     show_state "────────────────────────────────────────────────────────────
 ${LABEL_COMPLETED}   Render initialization
 ────────────────────────────────────────────────────────────"
-
     for func_num in {1..5}; do
-        # Implementing the functionality (3/4) - processing
+        func_name="${FUNCTIONALITIES[$((func_num-1))]}"
+        file_name="${FILES[$((func_num-1))]}"
+        folder_name="${FOLDERS[$((func_num-1))]}"
+        test_count=$((15 + func_num * 3))
+        # Implementation - processing
         show_state_flicker "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
- ${LABEL_PROCESSING_1}   Implementing the functionality (3/4)
+ ${LABEL_PROCESSING_1}   Implementing the functionality
   ⎿ Initial implementation
 
- ${LABEL_PENDING}   Processing unit tests
+ ${LABEL_PENDING}   Unit tests
  ${LABEL_PENDING}   Refactoring
  ${LABEL_PENDING}   Conformance tests
 ────────────────────────────────────────────────────────────" "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
- ${LABEL_PROCESSING_2}   Implementing the functionality (3/4)
+ ${LABEL_PROCESSING_2}   Implementing the functionality
   ⎿ Initial implementation
 
- ${LABEL_PENDING}   Processing unit tests
+ ${LABEL_PENDING}   Unit tests
  ${LABEL_PENDING}   Refactoring
  ${LABEL_PENDING}   Conformance tests
 ────────────────────────────────────────────────────────────"
-
         # Implementation - completed
         show_state "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
-  ⎿ Initial implementation
-
- ${LABEL_PENDING}   Processing unit tests
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_PENDING}   Unit tests
  ${LABEL_PENDING}   Refactoring
  ${LABEL_PENDING}   Conformance tests
 ────────────────────────────────────────────────────────────"
-
-        # Processing unit tests - running
+        # Unit tests - running
         show_state_flicker "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_PROCESSING_1}   Processing unit tests
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_PROCESSING_1}   Unit tests
   ⎿ Running unit tests
 
  ${LABEL_PENDING}   Refactoring
@@ -105,24 +112,23 @@ functionality (${func_num} of 5)
 ────────────────────────────────────────────────────────────" "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_PROCESSING_2}   Processing unit tests
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_PROCESSING_2}   Unit tests
   ⎿ Running unit tests
 
  ${LABEL_PENDING}   Refactoring
  ${LABEL_PENDING}   Conformance tests
 ────────────────────────────────────────────────────────────"
-
-        # Processing unit tests - fixing
+        # Unit tests - fixing
         show_state_flicker "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_PROCESSING_1}   Processing unit tests
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_PROCESSING_1}   Unit tests
   ⎿ Fixing unit tests
 
  ${LABEL_PENDING}   Refactoring
@@ -130,206 +136,342 @@ functionality (${func_num} of 5)
 ────────────────────────────────────────────────────────────" "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_PROCESSING_2}   Processing unit tests
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_PROCESSING_2}   Unit tests
   ⎿ Fixing unit tests
 
  ${LABEL_PENDING}   Refactoring
  ${LABEL_PENDING}   Conformance tests
 ────────────────────────────────────────────────────────────"
-
-        # Processing unit tests - successfully fixed
+        # Warning message (no label, just orange text)
         show_state "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_COMPLETED}   Processing unit tests
-  ⎿ ${GREEN}Successfully fixed unit tests${RESET}
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_PROCESSING_1}   Unit tests
+  ${ORANGE}⚠ Warning: 20 loops of unit tests completed. Consider reviewing test coverage and edge cases.${RESET}
+  ⎿ Running unit tests (attempt 2/2)
 
  ${LABEL_PENDING}   Refactoring
  ${LABEL_PENDING}   Conformance tests
 ────────────────────────────────────────────────────────────"
+        # Unit tests - success
+        show_state "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
-        # Refactoring - refactored x file
-        for i in {1..3}; do
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+  ⎿ ${GREEN}✓ All unit tests have passed${RESET}
+
+ ${LABEL_PENDING}   Refactoring
+ ${LABEL_PENDING}   Conformance tests
+────────────────────────────────────────────────────────────"
+        # Refactoring - Show progress for all files first
+        for i in {1..5}; do
             show_state_flicker "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_COMPLETED}   Processing unit tests
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
  ${LABEL_PROCESSING_1}   Refactoring
-  ⎿ Refactored ${i} file
+  ⎿ Code refactored (${i}/5). Refactored file: ${GREY}${file_name}:${i}${RESET}
 
  ${LABEL_PENDING}   Conformance tests
 ────────────────────────────────────────────────────────────" "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_COMPLETED}   Processing unit tests
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
  ${LABEL_PROCESSING_2}   Refactoring
-  ⎿ Refactored ${i} file
+  ⎿ Code refactored (${i}/5). Refactored file: ${GREY}${file_name}:${i}${RESET}
 
  ${LABEL_PENDING}   Conformance tests
 ────────────────────────────────────────────────────────────"
         done
 
-        # Back to Processing unit tests after refactoring
+        # Unit test validation - after all files refactored
+        # Substate: Unit test validation - running
         show_state_flicker "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_PROCESSING_1}   Processing unit tests
-  ⎿ Running unit tests
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_PROCESSING_1}   Refactoring
+  ⎿ Code refactored (5/5). Refactored file: ${GREY}${file_name}:5${RESET}
 
- ${LABEL_COMPLETED}   Refactoring
+    ${LABEL_PROCESSING_1}   Unit test validation of the refactored file
+     ⎿ Running unit tests
+
  ${LABEL_PENDING}   Conformance tests
 ────────────────────────────────────────────────────────────" "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_PROCESSING_2}   Processing unit tests
-  ⎿ Running unit tests
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_PROCESSING_2}   Refactoring
+  ⎿ Code refactored (5/5). Refactored file: ${GREY}${file_name}:5${RESET}
 
- ${LABEL_COMPLETED}   Refactoring
+    ${LABEL_PROCESSING_2}   Unit test validation of the refactored file
+     ⎿ Running unit tests
+
  ${LABEL_PENDING}   Conformance tests
 ────────────────────────────────────────────────────────────"
 
-        # Processing unit tests - completed after refactoring
+        # Substate: Unit test validation - fixing
+        show_state_flicker "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_PROCESSING_1}   Refactoring
+  ⎿ Code refactored (5/5). Refactored file: ${GREY}${file_name}:5${RESET}
+
+    ${LABEL_PROCESSING_1}   Unit test validation of the refactored file
+     ⎿ Fixing unit tests
+
+ ${LABEL_PENDING}   Conformance tests
+────────────────────────────────────────────────────────────" "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_PROCESSING_2}   Refactoring
+  ⎿ Code refactored (5/5). Refactored file: ${GREY}${file_name}:5${RESET}
+
+    ${LABEL_PROCESSING_2}   Unit test validation of the refactored file
+     ⎿ Fixing unit tests
+
+ ${LABEL_PENDING}   Conformance tests
+────────────────────────────────────────────────────────────"
+
+        # Substate: Unit test validation - success
         show_state "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_COMPLETED}   Processing unit tests
- ${LABEL_COMPLETED}   Refactoring
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_PROCESSING_1}   Refactoring
+  ⎿ Code refactored (5/5). Refactored file: ${GREY}${file_name}:5${RESET}
+
+    ${LABEL_COMPLETED}   Unit test validation of the refactored file
+     ⎿ Successfully validated refactoring with unit tests
+
  ${LABEL_PENDING}   Conformance tests
 ────────────────────────────────────────────────────────────"
-
-        # Conformance tests - executing (1/3)
-        show_state_flicker "────────────────────────────────────────────────────────────
-${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
-────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
-
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_COMPLETED}   Processing unit tests
- ${LABEL_COMPLETED}   Refactoring
- ${LABEL_PROCESSING_1}   Conformance tests
-  ⎿ Executing conformance tests for 1/3
-
-────────────────────────────────────────────────────────────" "────────────────────────────────────────────────────────────
-${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
-────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
-
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_COMPLETED}   Processing unit tests
- ${LABEL_COMPLETED}   Refactoring
- ${LABEL_PROCESSING_2}   Conformance tests
-  ⎿ Executing conformance tests for 1/3
-
-────────────────────────────────────────────────────────────"
-
-        # Conformance tests - generating (3/3)
-        show_state_flicker "────────────────────────────────────────────────────────────
-${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
-────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
-
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_COMPLETED}   Processing unit tests
- ${LABEL_COMPLETED}   Refactoring
- ${LABEL_PROCESSING_1}   Conformance tests
-  ⎿ Generating conformance tests for 3/3
-
-────────────────────────────────────────────────────────────" "────────────────────────────────────────────────────────────
-${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
-────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
-
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_COMPLETED}   Processing unit tests
- ${LABEL_COMPLETED}   Refactoring
- ${LABEL_PROCESSING_2}   Conformance tests
-  ⎿ Generating conformance tests for 3/3
-
-────────────────────────────────────────────────────────────"
-
-        # Conformance tests - running (3/3)
-        show_state_flicker "────────────────────────────────────────────────────────────
-${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
-────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
-
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_COMPLETED}   Processing unit tests
- ${LABEL_COMPLETED}   Refactoring
- ${LABEL_PROCESSING_1}   Conformance tests
-  ⎿ Running conformance tests for 3/3
-
-────────────────────────────────────────────────────────────" "────────────────────────────────────────────────────────────
-${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
-────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
-
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_COMPLETED}   Processing unit tests
- ${LABEL_COMPLETED}   Refactoring
- ${LABEL_PROCESSING_2}   Conformance tests
-  ⎿ Running conformance tests for 3/3
-
-────────────────────────────────────────────────────────────"
-
-        # Conformance tests - completed
+        # Refactoring - completed
         show_state "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-functionality (${func_num} of 5)
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
 
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_COMPLETED}   Processing unit tests
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_COMPLETED}   Refactoring
+ ${LABEL_PENDING}   Conformance tests
+────────────────────────────────────────────────────────────"
+        # Conformance tests - executing
+        show_state_flicker "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_COMPLETED}   Refactoring
+ ${LABEL_PROCESSING_1}   Conformance tests
+  ⎿ Executing conformance tests
+
+────────────────────────────────────────────────────────────" "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_COMPLETED}   Refactoring
+ ${LABEL_PROCESSING_2}   Conformance tests
+  ⎿ Executing conformance tests
+
+────────────────────────────────────────────────────────────"
+
+        # Conformance tests - generating
+        show_state_flicker "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_COMPLETED}   Refactoring
+ ${LABEL_PROCESSING_1}   Conformance tests
+  ⎿ Generating conformance tests
+
+────────────────────────────────────────────────────────────" "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_COMPLETED}   Refactoring
+ ${LABEL_PROCESSING_2}   Conformance tests
+  ⎿ Generating conformance tests
+
+────────────────────────────────────────────────────────────"
+
+        # Conformance tests - running
+        show_state_flicker "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_COMPLETED}   Refactoring
+ ${LABEL_PROCESSING_1}   Conformance tests
+  ⎿ Running conformance tests
+
+────────────────────────────────────────────────────────────" "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_COMPLETED}   Refactoring
+ ${LABEL_PROCESSING_2}   Conformance tests
+  ⎿ Running conformance tests
+
+────────────────────────────────────────────────────────────"
+
+        # Check if this is functionality 2 (error case)
+        if [ $func_num -eq 2 ]; then
+            # ERROR: Conformance test failed
+            show_state "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
  ${LABEL_COMPLETED}   Refactoring
  ${LABEL_COMPLETED}   Conformance tests
+  ⎿ ${ORANGE}Conformance test failed. See path for error: ${folder_name}/test_conformance.py:145${RESET}
+
+────────────────────────────────────────────────────────────"
+
+            # Substate: Updating implementation code
+            show_state_flicker "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_COMPLETED}   Refactoring
+ ${LABEL_PROCESSING_1}   Conformance tests
+  ⎿ ${ORANGE}Conformance test failed. See path for error: ${folder_name}/test_conformance.py:145${RESET}
+    ⎿ Updating implementation code
+
+────────────────────────────────────────────────────────────" "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_COMPLETED}   Refactoring
+ ${LABEL_PROCESSING_2}   Conformance tests
+  ⎿ ${ORANGE}Conformance test failed. See path for error: ${folder_name}/test_conformance.py:145${RESET}
+    ⎿ Updating implementation code
+
+────────────────────────────────────────────────────────────"
+
+            # Re-run conformance tests
+            show_state_flicker "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_COMPLETED}   Refactoring
+ ${LABEL_PROCESSING_1}   Conformance tests
+  ⎿ Running conformance tests (attempt 2/2)
+
+────────────────────────────────────────────────────────────" "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_COMPLETED}   Refactoring
+ ${LABEL_PROCESSING_2}   Conformance tests
+  ⎿ Running conformance tests (attempt 2/2)
+
+────────────────────────────────────────────────────────────"
+        fi
+
+        # Success message
+        show_state "────────────────────────────────────────────────────────────
+${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
+────────────────────────────────────────────────────────────
+${GREY}functionality ${func_num}/5: ${func_name}${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
+ ${LABEL_COMPLETED}   Refactoring
+ ${LABEL_COMPLETED}   Conformance tests
+  ⎿ ${GREEN}✓ Successfully ran ${test_count} conformance tests in ${folder_name}${RESET}
+
 ────────────────────────────────────────────────────────────"
 
         # Functionality complete
         show_state "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-${WHITE}functionality (${func_num} of 5) - Complete ✓${RESET}
 
- ${LABEL_COMPLETED}   Implementing the functionality (3/4)
- ${LABEL_COMPLETED}   Processing unit tests
+${WHITE}functionality ${func_num}/5: ${func_name} - Complete ✓${RESET}
+
+ ${LABEL_COMPLETED}   Implementing the functionality
+ ${LABEL_COMPLETED}   Unit tests
  ${LABEL_COMPLETED}   Refactoring
  ${LABEL_COMPLETED}   Conformance tests
 ────────────────────────────────────────────────────────────"
         sleep 4.0
     done
-
     # All complete
     show_state "────────────────────────────────────────────────────────────
 ${GREY}${LABEL_COMPLETED}   Render initialization${RESET}
 ────────────────────────────────────────────────────────────
-${GREY}All Functionalities Complete ✓${RESET}
 
- ${LABEL_COMPLETED}   functionality (1 of 5)
- ${LABEL_COMPLETED}   functionality (2 of 5)
- ${LABEL_COMPLETED}   functionality (3 of 5)
- ${LABEL_COMPLETED}   functionality (4 of 5)
- ${LABEL_COMPLETED}   functionality (5 of 5)
+${GREY}All Functionalities Complete ✓${RESET}
+ ${LABEL_COMPLETED}   Generate cryptographically secure random salt
+ ${LABEL_COMPLETED}   Implement get_default_params function
+ ${LABEL_COMPLETED}   Implement core Argon2id KDF
+ ${LABEL_COMPLETED}   Implement get_key function
+ ${LABEL_COMPLETED}   Implement security validation and tests
 ────────────────────────────────────────────────────────────"
     sleep 5
 done
