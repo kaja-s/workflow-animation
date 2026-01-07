@@ -11,22 +11,21 @@ This bash script creates an animated visualization of a development workflow for
 - **State Machine Visualization**: Shows progression through development states
 - **Colored Status Labels**:
   - Green for completed states
-  - Yellow (flickering) for processing states
+  - Yellow (flickering jellyfish spinner) for processing states
   - Grey for pending states
-  - Orange for error messages
 - **Realistic Workflow**: Includes substates for each main state
-- **Error Handling**: Demonstrates error recovery flow (functionality 2 shows conformance test failure and recovery)
 - **Hierarchical Display**: Tree-style formatting with ⎿ characters for substates
+- **Sequential Flow**: Implementation → Unit Tests → Refactoring → Unit Tests → Conformance Tests
 
 ## Workflow States
 
 Each functionality goes through:
 
 1. **Render initialization** - Setup and initialization
-2. **Implementing the functionality** - Initial implementation
-3. **Unit tests** - Running and fixing unit tests with validation
-4. **Refactoring** - Code refactoring with unit test validation
-5. **Conformance tests** - Executing, generating, and running conformance tests
+2. **Implementing the functionality (3/4)** - Initial implementation
+3. **Processing unit tests** - Running, fixing, and successfully fixing unit tests
+4. **Refactoring** - Refactoring files, then back to processing unit tests
+5. **Conformance tests** - Executing (1/3), generating (3/3), and running (3/3) conformance tests
 
 ## Usage
 
